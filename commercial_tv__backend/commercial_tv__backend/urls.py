@@ -14,9 +14,25 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
+
 from django.contrib import admin
-from django.urls import path
+    
+from django.conf import settings
+from django.urls import path , include
+from system_management import views
+from django.conf.urls.static import static
+
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+
+    path('system_management/', include('system_management.urls')),
+    path('system_management_api/', include('system_management.api.urls')),
+    # path('api/', include('system_management.urls')),  # Assuming your app is 'system_management'
 ]
+# urlpatterns = [
+#     path('admin/', admin.site.urls),
+#     path('', views.login_view, name='login_view'),
+# ]
