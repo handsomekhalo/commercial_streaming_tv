@@ -7,6 +7,7 @@ import requests
 from system_management.general_func_classes import host_url
 
 
+
 def login_view(request):
     """User login function with API."""
 
